@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class CXSearchModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,17 +16,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  根据参数去取数据
  *
- *  @param params
+ *  @param key
  *
  */
-+ (NSDictionary *)statusesWithParams:(NSDictionary *)params;
++ (NSArray *)statusesWithParams:(NSString *)key;
 
 /**
  *  存储服务器数据到沙盒中
  *
  *  @param statuses 需要存储的数据
  */
-+ (void)saveStatuses:(NSDictionary *)statuses andParam:(NSDictionary *)paramDict;
++ (void)saveStatuses:(NSArray *)statuses andKey:(NSString *)key;
 
 @end
 

@@ -7,6 +7,7 @@
 //
 
 #import "CXViewController.h"
+#import "CXSearchViewController.h"
 
 @interface CXViewController ()
 
@@ -18,6 +19,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (IBAction)didClick:(id)sender {
+    CXSearchViewController *searchViewController = [[CXSearchViewController alloc] init];
+    [self.navigationController pushViewController:searchViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		10D0FD4D249DFE27C7C4BD32 /* Pods_CXShearchBar_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C35188F392EAC5DE6C16C1DD /* Pods_CXShearchBar_Example.framework */; };
 		5A484C5822734CCD004B547B /* CXDBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A484C5722734CCD004B547B /* CXDBTool.m */; };
+		5AA2119B22773B6E0001C342 /* CXSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA2119A22773B6E0001C342 /* CXSearchModel.m */; };
+		5AA2119F22773C8A0001C342 /* CXSearchCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA2119D22773C8A0001C342 /* CXSearchCollectionViewCell.m */; };
+		5AA211A022773C8A0001C342 /* CXSearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AA2119E22773C8A0001C342 /* CXSearchCollectionViewCell.xib */; };
+		5AA211A3227741230001C342 /* CXSearchCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA211A2227741230001C342 /* CXSearchCollectionReusableView.m */; };
+		5AA211A6227743560001C342 /* CXSearchLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA211A5227743560001C342 /* CXSearchLayout.m */; };
+		5AA211AA227744230001C342 /* CXSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA211A8227744230001C342 /* CXSearchViewController.m */; };
+		5AA211AB227744230001C342 /* CXSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AA211A9227744230001C342 /* CXSearchViewController.xib */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -44,6 +51,19 @@
 		505133119B57939560204218 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		5A484C5622734CCD004B547B /* CXDBTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXDBTool.h; sourceTree = "<group>"; };
 		5A484C5722734CCD004B547B /* CXDBTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXDBTool.m; sourceTree = "<group>"; };
+		5AA2119822773A960001C342 /* CXSearchProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXSearchProtocol.h; sourceTree = "<group>"; };
+		5AA2119922773B6E0001C342 /* CXSearchModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXSearchModel.h; sourceTree = "<group>"; };
+		5AA2119A22773B6E0001C342 /* CXSearchModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXSearchModel.m; sourceTree = "<group>"; };
+		5AA2119C22773C8A0001C342 /* CXSearchCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXSearchCollectionViewCell.h; sourceTree = "<group>"; };
+		5AA2119D22773C8A0001C342 /* CXSearchCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXSearchCollectionViewCell.m; sourceTree = "<group>"; };
+		5AA2119E22773C8A0001C342 /* CXSearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CXSearchCollectionViewCell.xib; sourceTree = "<group>"; };
+		5AA211A1227741230001C342 /* CXSearchCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXSearchCollectionReusableView.h; sourceTree = "<group>"; };
+		5AA211A2227741230001C342 /* CXSearchCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXSearchCollectionReusableView.m; sourceTree = "<group>"; };
+		5AA211A4227743560001C342 /* CXSearchLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXSearchLayout.h; sourceTree = "<group>"; };
+		5AA211A5227743560001C342 /* CXSearchLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXSearchLayout.m; sourceTree = "<group>"; };
+		5AA211A7227744230001C342 /* CXSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXSearchViewController.h; sourceTree = "<group>"; };
+		5AA211A8227744230001C342 /* CXSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXSearchViewController.m; sourceTree = "<group>"; };
+		5AA211A9227744230001C342 /* CXSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CXSearchViewController.xib; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* CXShearchBar_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CXShearchBar_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -113,6 +133,9 @@
 		5A484C5222734C9C004B547B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5AA2119822773A960001C342 /* CXSearchProtocol.h */,
+				5AA2119922773B6E0001C342 /* CXSearchModel.h */,
+				5AA2119A22773B6E0001C342 /* CXSearchModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -120,6 +143,13 @@
 		5A484C5322734C9C004B547B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5AA2119C22773C8A0001C342 /* CXSearchCollectionViewCell.h */,
+				5AA2119D22773C8A0001C342 /* CXSearchCollectionViewCell.m */,
+				5AA2119E22773C8A0001C342 /* CXSearchCollectionViewCell.xib */,
+				5AA211A1227741230001C342 /* CXSearchCollectionReusableView.h */,
+				5AA211A2227741230001C342 /* CXSearchCollectionReusableView.m */,
+				5AA211A4227743560001C342 /* CXSearchLayout.h */,
+				5AA211A5227743560001C342 /* CXSearchLayout.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -127,6 +157,9 @@
 		5A484C5422734C9C004B547B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				5AA211A7227744230001C342 /* CXSearchViewController.h */,
+				5AA211A8227744230001C342 /* CXSearchViewController.m */,
+				5AA211A9227744230001C342 /* CXSearchViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -323,7 +356,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				5AA211AB227744230001C342 /* CXSearchViewController.xib in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				5AA211A022773C8A0001C342 /* CXSearchCollectionViewCell.xib in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -413,10 +448,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AA211A3227741230001C342 /* CXSearchCollectionReusableView.m in Sources */,
 				5A484C5822734CCD004B547B /* CXDBTool.m in Sources */,
+				5AA211A6227743560001C342 /* CXSearchLayout.m in Sources */,
 				6003F59E195388D20070C39A /* CXAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* CXViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				5AA2119B22773B6E0001C342 /* CXSearchModel.m in Sources */,
+				5AA2119F22773C8A0001C342 /* CXSearchCollectionViewCell.m in Sources */,
+				5AA211AA227744230001C342 /* CXSearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
