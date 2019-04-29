@@ -46,8 +46,7 @@ static FMDatabase *_db;
 + (void)saveStatuses:(NSArray *)statuses andKey:(NSString *)key {
     [CXDBTool delect:key];
     NSData *statusData = [NSKeyedArchiver archivedDataWithRootObject:statuses];
-    BOOL success = [_db executeUpdateWithFormat:@"INSERT INTO t_search(search, search_idstr) VALUES (%@, %@);", statusData, key];
-    NSLog(@"%zd",success);
+    [_db executeUpdateWithFormat:@"INSERT INTO t_search(search, search_idstr) VALUES (%@, %@);", statusData, key];
 }
 
 + (BOOL)delect:(NSString *)search_idstr {
