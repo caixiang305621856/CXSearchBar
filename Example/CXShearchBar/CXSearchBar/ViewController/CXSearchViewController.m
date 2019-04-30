@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) NSMutableArray *searchDataSource;
 @property (strong, nonatomic) CXSearchLayout *searchLayout;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *top;
 
 @end
 
@@ -30,22 +31,17 @@ const CGFloat kFirstitemleftSpace = 20;
 
 @implementation CXSearchViewController
 
-- (CXSearchLayout *)searchLayout{
-    if (!_searchLayout) {
-        _searchLayout = [[CXSearchLayout alloc] init];
-        _searchLayout.headerReferenceSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 30);
-        _searchLayout.minimumInteritemSpacing = kMinimumInteritemSpacing;
-        _searchLayout.minimumLineSpacing = kMinimumInteritemSpacing;
-        _searchLayout.listItemSpace = kMinimumInteritemSpacing;
-        _searchLayout.sectionInset = UIEdgeInsetsMake(20, kFirstitemleftSpace, 0, kFirstitemleftSpace);
-    }
-    return _searchLayout;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpUI];
+    [self setUpdata];
+}
+
+- (void)setUpUI {
     self.navigationController.navigationBarHidden = YES;
     self.searchCollectionView.alwaysBounceVertical = YES;
+    self.searchCollectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    
     self.searchTextField.delegate = self;
     self.searchCollectionView.dataSource = self;
     self.searchCollectionView.delegate = self;
@@ -53,13 +49,14 @@ const CGFloat kFirstitemleftSpace = 20;
     [self.searchCollectionView setCollectionViewLayout:self.searchLayout animated:YES];
     [self.searchCollectionView registerClass:[CXSearchCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([CXSearchCollectionReusableView class])];
     [self.searchCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([CXSearchCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([CXSearchCollectionViewCell class])];
-    
+}
+
+- (void)setUpdata {
     NSArray *datas = @[@"化妆棉",@"面膜",@"口红",@"眼霜",@"洗面奶",@"防晒霜",@"补水",@"香水",@"眉笔"];
     [datas enumerateObjectsUsingBlock:^(NSString *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        CXSearchModel *searchModel = [[CXSearchModel alloc] initWithName:obj searchId:[NSString stringWithFormat:@"%lu",idx + 1]];
+        CXSearchModel *searchModel = [[CXSearchModel alloc] initWithName:obj searchId:[NSString stringWithFormat:@"%u",idx + 1]];
         [self.dataSource addObject:searchModel];
     }];
-    
     //去数据库取数据
     NSArray *dbDatas =  [CXDBTool statusesWithKey:kHistoryKey];
     if (dbDatas.count > 0) {
@@ -146,8 +143,14 @@ const CGFloat kFirstitemleftSpace = 20;
     } else if (section == 1){
          searchModel =  self.searchDataSource[item];
     }
-    UIAlertView *al = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"您该去搜索 %@ 的相关内容了",searchModel.content] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"知道了！", nil];
-    [al show];
+    [self showAlertWithTitle:[NSString stringWithFormat:@"您该去搜索 %@ 的相关内容了",searchModel.content]];
+}
+
+- (UIAlertController *)showAlertWithTitle:(NSString *)title {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleDefault handler:nil]];
+    [self.navigationController presentViewController:alertController animated:YES completion:nil];
+    return alertController;
 }
 
 #pragma mark - textField
@@ -156,7 +159,7 @@ const CGFloat kFirstitemleftSpace = 20;
         return NO;
     }
     /***  每搜索一次   就会存放一次到历史记录，但不存重复的*/
-    __block BOOL isExist;
+    __block BOOL isExist = NO;
     [self.searchDataSource enumerateObjectsUsingBlock:^(CXSearchModel *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([textField.text isEqualToString:obj.content]) {
             isExist = YES;
@@ -207,6 +210,18 @@ const CGFloat kFirstitemleftSpace = 20;
         _searchDataSource = [NSMutableArray array];
     }
     return _searchDataSource;
+}
+
+- (CXSearchLayout *)searchLayout{
+    if (!_searchLayout) {
+        _searchLayout = [[CXSearchLayout alloc] init];
+        _searchLayout.headerReferenceSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 30);
+        _searchLayout.minimumInteritemSpacing = kMinimumInteritemSpacing;
+        _searchLayout.minimumLineSpacing = kMinimumInteritemSpacing;
+        _searchLayout.listItemSpace = kMinimumInteritemSpacing;
+        _searchLayout.sectionInset = UIEdgeInsetsMake(20, kFirstitemleftSpace, 0, kFirstitemleftSpace);
+    }
+    return _searchLayout;
 }
 
 @end

@@ -58,6 +58,7 @@
                             </connections>
                         </button>
                     </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="8CX-Qw-83i" firstAttribute="leading" secondItem="LgT-gn-o6T" secondAttribute="leading" constant="20" id="ATH-fA-mcl"/>
                         <constraint firstAttribute="bottom" secondItem="8CX-Qw-83i" secondAttribute="bottom" constant="6" id="D2R-vE-Nnj"/>
@@ -83,10 +84,11 @@
             <constraints>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="WTe-fi-amj" secondAttribute="trailing" id="1y7-AY-1cm"/>
                 <constraint firstItem="WTe-fi-amj" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="9bf-n8-cc9"/>
+                <constraint firstItem="LgT-gn-o6T" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" priority="999" id="FEz-4x-ei7"/>
                 <constraint firstItem="LgT-gn-o6T" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="FuE-F9-uO3"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="WTe-fi-amj" secondAttribute="bottom" id="MJ0-QR-xHQ"/>
                 <constraint firstItem="WTe-fi-amj" firstAttribute="top" secondItem="LgT-gn-o6T" secondAttribute="bottom" id="YQ0-Nc-WBs"/>
-                <constraint firstItem="LgT-gn-o6T" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="ZLh-Vl-YgQ"/>
+                <constraint firstItem="LgT-gn-o6T" firstAttribute="top" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="p76-H0-Ou4"/>
                 <constraint firstItem="LgT-gn-o6T" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="sTv-LA-BO4"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
