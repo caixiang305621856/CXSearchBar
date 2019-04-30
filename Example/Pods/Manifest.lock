@@ -1,0 +1,25 @@
+PODS:
+  - CXShearchBar (0.1.0)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+
+DEPENDENCIES:
+  - CXShearchBar (from `../`)
+  - FMDB
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FMDB
+
+EXTERNAL SOURCES:
+  CXShearchBar:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CXShearchBar: d6969e7c86124e15fac06b1f6514c8dee35d95b5
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+
+PODFILE CHECKSUM: 87c7978ca0531224219e2c019d1470f5c2359d1c
+
+COCOAPODS: 1.5.3
