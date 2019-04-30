@@ -11,6 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CXSearchLayout : UICollectionViewFlowLayout
+/**
+ 列间距
+ */
+@property (assign, nonatomic) CGFloat listItemSpace;
 
 @end
 

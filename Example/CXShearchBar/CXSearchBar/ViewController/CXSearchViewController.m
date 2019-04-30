@@ -20,11 +20,27 @@
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) NSMutableArray *searchDataSource;
+@property (strong, nonatomic) CXSearchLayout *searchLayout;
 
 @end
+
  NSString *const kHistoryKey = @"kHistoryKey";
+const CGFloat kMinimumInteritemSpacing = 10;
+const CGFloat kFirstitemleftSpace = 20;
 
 @implementation CXSearchViewController
+
+- (CXSearchLayout *)searchLayout{
+    if (!_searchLayout) {
+        _searchLayout = [[CXSearchLayout alloc] init];
+        _searchLayout.headerReferenceSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 30);
+        _searchLayout.minimumInteritemSpacing = kMinimumInteritemSpacing;
+        _searchLayout.minimumLineSpacing = kMinimumInteritemSpacing;
+        _searchLayout.listItemSpace = kMinimumInteritemSpacing;
+        _searchLayout.sectionInset = UIEdgeInsetsMake(20, kFirstitemleftSpace, 0, kFirstitemleftSpace);
+    }
+    return _searchLayout;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,7 +50,7 @@
     self.searchCollectionView.dataSource = self;
     self.searchCollectionView.delegate = self;
     
-    [self.searchCollectionView setCollectionViewLayout:[[CXSearchLayout alloc] init] animated:YES];
+    [self.searchCollectionView setCollectionViewLayout:self.searchLayout animated:YES];
     [self.searchCollectionView registerClass:[CXSearchCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([CXSearchCollectionReusableView class])];
     [self.searchCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([CXSearchCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([CXSearchCollectionViewCell class])];
     

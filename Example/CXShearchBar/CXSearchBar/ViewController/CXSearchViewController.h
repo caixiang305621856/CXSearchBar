@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+extern const CGFloat kFirstitemleftSpace;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CXSearchViewController : UIViewController
