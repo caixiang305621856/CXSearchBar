@@ -21,32 +21,31 @@ static FMDatabase *_db;
     [_db open];
     
     // 2.创表
-    [_db executeUpdate:@"CREATE TABLE IF NOT EXISTS t_search (id integer PRIMARY KEY, search blob NOT NULL, search_idstr varchar NOT NULL);"];
+    [_db executeUpdate:@"CREATE TABLE IF NOT EXISTS t_search (id integer PRIMARY KEY, searchData blob NOT NULL, search_idstr varchar NOT NULL);"];
 }
 
-+ (NSArray<CXSearchModel *> *)statusesWithParams:(NSString *)key {
++ (id)statusesWithKey:(NSString *)key {
     // 根据请求参数生成对应的查询SQL语句
     NSString *sql = nil;
     if (key.length > 0) {
-        sql = [NSString stringWithFormat:@"SELECT * FROM t_search WHERE search_idstr = %@ ;", key];
+        sql = [NSString stringWithFormat:@"SELECT * FROM t_search WHERE search_idstr = '%@';", key];
     }else{
         sql = @"SELECT * FROM t_search;";
     }
     // 执行SQL
     FMResultSet *set = [_db executeQuery:sql];
     while (set.next) {
-#warning 查询有问题？
-        NSData *statusData = [set objectForColumn:@"search"];
-        NSArray *status = [NSKeyedUnarchiver unarchiveObjectWithData:statusData];
+        NSData *statusData = [set objectForColumn:@"searchData"];
+        id status = [NSKeyedUnarchiver unarchiveObjectWithData:statusData];
         return status;
     }
     return @[];
 }
 
-+ (void)saveStatuses:(NSArray *)statuses andKey:(NSString *)key {
++ (void)saveStatuses:(id)statuses key:(NSString *)key {
     [CXDBTool delect:key];
     NSData *statusData = [NSKeyedArchiver archivedDataWithRootObject:statuses];
-    [_db executeUpdateWithFormat:@"INSERT INTO t_search(search, search_idstr) VALUES (%@, %@);", statusData, key];
+    [_db executeUpdateWithFormat:@"INSERT INTO t_search(searchData, search_idstr) VALUES (%@, %@);", statusData, key];
 }
 
 + (BOOL)delect:(NSString *)search_idstr {

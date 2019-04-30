@@ -19,14 +19,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param key
  *
  */
-+ (NSArray *)statusesWithParams:(NSString *)key;
++ (id)statusesWithKey:(NSString *)key;
 
 /**
  *  存储服务器数据到沙盒中
  *
  *  @param statuses 需要存储的数据
  */
-+ (void)saveStatuses:(NSArray *)statuses andKey:(NSString *)key;
++ (void)saveStatuses:(id)statuses key:(NSString *)key;
 
 @end
 

@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
-    
+    self.searchCollectionView.alwaysBounceVertical = YES;
     self.searchTextField.delegate = self;
     self.searchCollectionView.dataSource = self;
     self.searchCollectionView.delegate = self;
@@ -45,7 +45,7 @@
     }];
     
     //去数据库取数据
-    NSArray *dbDatas =  [CXDBTool statusesWithParams:kHistoryKey];
+    NSArray *dbDatas =  [CXDBTool statusesWithKey:kHistoryKey];
     if (dbDatas.count > 0) {
         [self.searchDataSource setArray:dbDatas];
     }
@@ -163,7 +163,7 @@
     CXSearchModel *searchModel = [[CXSearchModel alloc] initWithName:textString searchId:@""];
     [self.searchDataSource addObject:searchModel];
     //存数据
-    [CXDBTool saveStatuses:[self.searchDataSource copy] andKey:kHistoryKey];
+    [CXDBTool saveStatuses:[self.searchDataSource copy] key:kHistoryKey];
     [self.searchCollectionView reloadData];
     self.searchTextField.text = @"";
 }
@@ -176,7 +176,7 @@
 - (void)deleteDatas:(CXSearchCollectionReusableView *)view {
     [self.searchDataSource removeAllObjects];
     [self.searchCollectionView reloadData];
-    [CXDBTool saveStatuses:@[] andKey:kHistoryKey];
+    [CXDBTool saveStatuses:@[] key:kHistoryKey];
 }
 
 - (NSMutableArray *)dataSource {
